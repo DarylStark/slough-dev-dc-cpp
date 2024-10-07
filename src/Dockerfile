@@ -14,7 +14,9 @@ RUN apt-get update && \
     cmake \
     cppcheck \
     gdb \
-    valgrind && \
+    valgrind \
+    clang-tidy \
+    clang-format && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
