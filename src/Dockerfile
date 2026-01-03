@@ -7,7 +7,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 USER root
 
 # Intall C++ tools
-# hadolint ignore=DL3008
+# hadolint ignore=DL3008,DL3003,DL4006
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
@@ -15,9 +15,14 @@ RUN apt-get update && \
     cppcheck \
     gdb \
     valgrind \
-    clang \
-    clang-tidy \
-    clang-format && \
+    lsb-release \
+    wget \
+    software-properties-common \
+    gnupg && \
+    wget https://apt.llvm.org/llvm.sh && \
+    chmod +x llvm.sh && \
+    ./llvm.sh 20 && \
+    rm llvm.sh && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
