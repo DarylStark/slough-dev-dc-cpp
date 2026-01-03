@@ -34,6 +34,10 @@ RUN apt-get update && \
     clang-format-19 \
     clang-tidy-18 \
     clang-format-18 && \
+    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-21 100 && \
+    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-21 100 && \
+    update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-21 100 && \
+    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-21 100 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
