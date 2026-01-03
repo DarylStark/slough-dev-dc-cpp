@@ -15,6 +15,7 @@ RUN apt-get update && \
     cppcheck \
     gdb \
     valgrind \
+    clang \
     clang-tidy \
     clang-format && \
     apt-get clean && \
