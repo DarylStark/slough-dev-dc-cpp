@@ -37,13 +37,7 @@ RUN apt-get update && \
     clang-tidy-18 \
     clang-format-18 \
     libc++-21-dev \
-    libc++abi-21-dev \
-    libc++-20-dev \
-    libc++abi-20-dev \
-    libc++-19-dev \
-    libc++abi-19-dev \
-    libc++-18-dev \
-    libc++abi-18-dev && \
+    libc++abi-21-dev && \
     update-alternatives --install /usr/bin/clang clang /usr/bin/clang-21 100 && \
     update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-21 100 && \
     update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-21 100 && \
