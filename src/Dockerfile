@@ -19,7 +19,7 @@ RUN apt-get update && \
     wget \
     software-properties-common \
     gnupg && \
-    wget https://apt.llvm.org/llvm.sh && \
+    wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh 21 && \
     ./llvm.sh 20 && \
