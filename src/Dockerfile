@@ -22,6 +22,9 @@ RUN apt-get update && \
     wget https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh 20 && \
+    apt-get install -y --no-install-recommends \
+    clang-tidy-20 \
+    clang-format-20 && \
     rm llvm.sh && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
