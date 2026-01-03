@@ -191,11 +191,13 @@ Here's a quick example of compiling and running a C++ program:
 
 1. Create a simple C++ file:
    ```bash
-   echo '#include <iostream>
-   int main() {
-       std::cout << "Hello from Slough C++ Dev Container!" << std::endl;
-       return 0;
-   }' > hello.cpp
+   cat > hello.cpp << 'EOF'
+#include <iostream>
+int main() {
+    std::cout << "Hello from Slough C++ Dev Container!" << std::endl;
+    return 0;
+}
+EOF
    ```
 
 2. Compile with g++:
