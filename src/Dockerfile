@@ -18,7 +18,8 @@ RUN apt-get update && \
     lsb-release \
     wget \
     software-properties-common \
-    gnupg && \
+    gnupg \
+    ninja-build && \
     wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh 21 && \
