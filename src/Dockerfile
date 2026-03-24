@@ -19,8 +19,7 @@ RUN apt-get update && \
     wget \
     software-properties-common \
     gnupg \
-    ninja-build \
-    gcovr && \
+    ninja-build && \
     wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh 21 && \
@@ -47,6 +46,9 @@ RUN apt-get update && \
 
 # Switch back to developer user
 USER developer
+
+# Install gcovr using uv
+RUN uv tool install gcovr
 
 # Configure Starship
 ENV PROMPTNAME="CPP"
