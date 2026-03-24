@@ -20,7 +20,11 @@ RUN apt-get update && \
     software-properties-common \
     gnupg \
     ninja-build \
-    gcovr && \
+    gcovr \
+    gcc-14 \
+    g++-14 && \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-14 100 && \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-14 100 && \
     wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh 21 && \
