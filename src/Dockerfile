@@ -6,11 +6,15 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 # Switch to root user
 USER root
 
+# Add testing repo
+RUN echo "deb http://deb.debian.org/debian testing main" >> /etc/apt/sources.list.d/testing.list
+
 # Intall C++ tools
 # hadolint ignore=DL3008,DL3003,DL4006
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
+    gcc-15 \
     cmake \
     cppcheck \
     gdb \
@@ -22,25 +26,17 @@ RUN apt-get update && \
     ninja-build && \
     wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
-    ./llvm.sh 21 && \
-    ./llvm.sh 20 && \
-    ./llvm.sh 19 && \
-    ./llvm.sh 18 && \
+    ./llvm.sh 22 && \
     apt-get install -y --no-install-recommends \
-    clang-tidy-21 \
-    clang-format-21 \
-    clang-tidy-20 \
-    clang-format-20 \
-    clang-tidy-19 \
-    clang-format-19 \
-    clang-tidy-18 \
-    clang-format-18 \
-    libc++-21-dev \
-    libc++abi-21-dev && \
-    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-21 100 && \
-    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-21 100 && \
-    update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-21 100 && \
-    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-21 100 && \
+    clang-tidy-22 \
+    clang-format-22 \
+    libc++-22-dev \
+    libstdc++-16-dev \
+    libc++abi-22-dev && \
+    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-22 100 && \
+    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-22 100 && \
+    update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-22 100 && \
+    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-22 100 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
