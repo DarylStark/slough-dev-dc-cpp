@@ -25,7 +25,17 @@ RUN apt-get update && \
     software-properties-common \
     gnupg \
     doxygen \
-    ninja-build && \
+    ninja-build \
+    pkg-config \
+    libgl1-mesa-dev \
+    libx11-dev \
+    libxrandr-dev \
+    libxinerama-dev \
+    libxcursor-dev \
+    libxi-dev \
+    libwayland-dev \
+    libxkbcommon-dev \
+    wayland-protocols && \
     wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
     ./llvm.sh 22 && \
