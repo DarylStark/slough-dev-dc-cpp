@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM dast1986/slough-dev-dc-generic-base:1.0.0 AS base
+FROM dast1986/slough-dev-dc-generic-base:1.0.2 AS base
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -7,7 +7,8 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 USER root
 
 # Add testing repo
-RUN echo "deb http://deb.debian.org/debian testing main" >> /etc/apt/sources.list.d/testing.list
+RUN echo "deb http://deb.debian.org/debian testing main" >> /etc/apt/sources.list.d/testing.list && \
+    mkdir -p /etc/dpkg/dpkg.cfg.d && echo "force-overwrite" > /etc/dpkg/dpkg.cfg.d/force-overwrite
 
 # Intall C++ tools
 # hadolint ignore=DL3008,DL3003,DL4006
@@ -48,6 +49,13 @@ RUN uv tool install gcovr
 
 # Configure Starship
 ENV PROMPTNAME="CPP"
+
+# Add update scripts
+COPY ./update/ /opt/update-dc/
+
+# Update the system
+# hadolint ignore=DL3004
+RUN sudo /opt/update-dc/000-update-dev-dc.sh
 
 # Set the default command to bash
 CMD ["bash"]
