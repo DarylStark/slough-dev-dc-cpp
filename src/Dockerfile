@@ -46,8 +46,7 @@ RUN apt-get update && \
 USER developer
 
 # Install gcovr using uv
-RUN uv tool install gcovr
-RUN uv tool install conan
+RUN uv tool install gcovr && uv tool install conan
 
 # Configure Starship
 ENV PROMPTNAME="CPP"
