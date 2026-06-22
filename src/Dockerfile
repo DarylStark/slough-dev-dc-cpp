@@ -24,6 +24,7 @@ RUN apt-get update && \
     wget \
     software-properties-common \
     gnupg \
+    doxygen \
     ninja-build && \
     wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
@@ -46,6 +47,7 @@ USER developer
 
 # Install gcovr using uv
 RUN uv tool install gcovr
+RUN uv tool install conan
 
 # Configure Starship
 ENV PROMPTNAME="CPP"

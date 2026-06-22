@@ -12,8 +12,9 @@ print_header "Updating C++ Dev Container / Tools"
 
 sudo apt update
 sudo apt install -y --no-install-recommends \
+    doxygen \
     valgrind \
     cmake \
     cppcheck
 
-sudo -u developer /home/developer/.local/bin/uv tool upgrade gcovr
+sudo -u developer /home/developer/.local/bin/uv tool upgrade gcovr conan
