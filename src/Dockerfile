@@ -58,6 +58,11 @@ USER developer
 # Install gcovr using uv
 RUN uv tool install gcovr && uv tool install conan
 
+# Configure Conan
+RUN conan profile detect --force && \
+    echo "tools.system.package_manager:mode = install" >> ~/.conan2/global.conf && \
+    echo "tools.system.package_manager:sudo = True" >> ~/.conan2/global.conf
+
 # Configure Starship
 ENV PROMPTNAME="CPP"
 
