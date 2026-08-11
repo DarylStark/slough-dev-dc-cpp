@@ -1,5 +1,5 @@
 # hadolint ignore=DL3007
-FROM dast1986/slough-dev-dc-generic-base:1.0.3 AS base
+FROM dast1986/slough-dev-dc-generic-base:1.0.4 AS base
 
 SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
@@ -15,7 +15,8 @@ RUN echo "deb http://deb.debian.org/debian testing main" >> /etc/apt/sources.lis
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
     build-essential \
-    gcc-15 \
+    gcc-16 \
+    g++-16 \
     cmake \
     cppcheck \
     gdb \
@@ -49,10 +50,13 @@ RUN apt-get update && \
     update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-22 100 && \
     update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-22 100 && \
     update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-22 100 && \
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-16 100 && \
+    update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-16 100 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
 # Switch back to developer user
+
 USER developer
 
 # Install gcovr using uv
