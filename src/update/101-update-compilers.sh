@@ -18,3 +18,5 @@ sudo apt install -y --no-install-recommends \
     libc++-22-dev \
     libstdc++-16-dev \
     libc++abi-22-dev
+
+sudo update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-16 100

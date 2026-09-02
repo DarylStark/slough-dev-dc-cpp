@@ -52,6 +52,7 @@ RUN apt-get update && \
     update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-22 100 && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-16 100 && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-16 100 && \
+    update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-16 100 && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists
 
