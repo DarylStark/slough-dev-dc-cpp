@@ -150,6 +150,14 @@ This container includes a comprehensive set of C++ development tools:
   cppcheck --enable=all --std=c++20 src/
   ```
 
+### Documentation and Reference Tools
+
+- **cppman:** C++ manual pages on the command line
+  ```bash
+  cppman std::vector
+  cppman std::filesystem::path
+  ```
+
 ### Debugging and Profiling Tools
 
 - **GDB (GNU Debugger):** Command-line debugger
