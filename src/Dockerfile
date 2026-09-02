@@ -59,8 +59,8 @@ RUN apt-get update && \
 
 USER developer
 
-# Install gcovr using uv
-RUN uv tool install gcovr && uv tool install conan
+# Install Python-based tools using uv
+RUN uv tool install gcovr && uv tool install conan && uv tool install cppman
 
 # Configure Conan
 RUN conan profile detect --force && \
