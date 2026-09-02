@@ -27,4 +27,4 @@ sudo apt install -y --no-install-recommends \
     libxkbcommon-dev \
     wayland-protocols
 
-sudo -u developer /home/developer/.local/bin/uv tool upgrade gcovr conan
+sudo -u developer /home/developer/.local/bin/uv tool upgrade gcovr conan cppman
