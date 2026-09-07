@@ -39,17 +39,17 @@ RUN apt-get update && \
     wayland-protocols && \
     wget -nv https://apt.llvm.org/llvm.sh && \
     chmod +x llvm.sh && \
-    ./llvm.sh 22 && \
+    ./llvm.sh 23 && \
     apt-get install -y --no-install-recommends \
-    clang-tidy-22 \
-    clang-format-22 \
-    libc++-22-dev \
+    clang-tidy-23 \
+    clang-format-23 \
+    libc++-23-dev \
     libstdc++-16-dev \
-    libc++abi-22-dev && \
-    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-22 100 && \
-    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-22 100 && \
-    update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-22 100 && \
-    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-22 100 && \
+    libc++abi-23-dev && \
+    update-alternatives --install /usr/bin/clang clang /usr/bin/clang-23 100 && \
+    update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-23 100 && \
+    update-alternatives --install /usr/bin/clang-tidy clang-tidy /usr/bin/clang-tidy-23 100 && \
+    update-alternatives --install /usr/bin/clang-format clang-format /usr/bin/clang-format-23 100 && \
     update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-16 100 && \
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-16 100 && \
     update-alternatives --install /usr/bin/gcov gcov /usr/bin/gcov-16 100 && \
